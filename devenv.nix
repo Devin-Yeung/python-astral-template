@@ -7,6 +7,10 @@
 }:
 
 {
+  imports = [
+    ./devenv/astral
+  ];
+
   # https://devenv.sh/packages/
   packages = [ ];
 
