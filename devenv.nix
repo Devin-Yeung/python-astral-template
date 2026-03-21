@@ -29,5 +29,12 @@
     nixfmt.enable = true;
   };
 
+  # astral toolchain
+  astral = {
+    lint.enable = true;
+    format.enable = true;
+    ty.enable = true;
+  };
+
   # See full reference at https://devenv.sh/reference/options/
 }
