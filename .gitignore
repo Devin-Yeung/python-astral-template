@@ -22,3 +22,6 @@ devenv.local.yaml
 
 # env
 .env
+
+# .idea
+.idea
