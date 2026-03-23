@@ -9,6 +9,7 @@
 {
   imports = [
     ./devenv/astral
+    ./devenv/uv.nix
   ];
 
   # https://devenv.sh/packages/
