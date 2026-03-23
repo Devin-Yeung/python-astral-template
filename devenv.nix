@@ -9,7 +9,6 @@
 {
   imports = [
     ./devenv/astral
-    ./devenv/uv.nix
   ];
 
   # https://devenv.sh/packages/
@@ -35,6 +34,7 @@
     lint.enable = true;
     format.enable = true;
     ty.enable = true;
+    uv-export.enable = true;
   };
 
   # See full reference at https://devenv.sh/reference/options/
