@@ -7,6 +7,10 @@ on:
 permissions:
   contents: read
 
+env:
+  # Keep the uv version in one place so CI upgrades only require a single edit.
+  UV_VERSION: "0.9.22"
+
 jobs:
   ruff-format:
     name: ruff format
@@ -27,7 +31,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.9.22"
+          version: ${{ env.UV_VERSION }}
           enable-cache: true
 
       - name: Sync the locked development environment
@@ -52,7 +56,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.9.22"
+          version: ${{ env.UV_VERSION }}
           enable-cache: true
 
       - name: Sync the locked development environment
@@ -78,7 +82,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: "0.9.22"
+          version: ${{ env.UV_VERSION }}
           enable-cache: true
 
       - name: Sync the locked development environment
