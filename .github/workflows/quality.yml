@@ -1,4 +1,4 @@
-name: Quality
+name: quality
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   ruff-format:
-    name: Ruff Format
+    name: ruff format
     runs-on: ubuntu-latest
 
     steps:
@@ -37,7 +37,7 @@ jobs:
         run: uv run ruff format --check .
 
   ruff-lint:
-    name: Ruff Lint
+    name: ruff lint
     runs-on: ubuntu-latest
 
     steps:
@@ -63,7 +63,7 @@ jobs:
         run: uv run ruff check --output-format=github .
 
   ty-check:
-    name: ty Check
+    name: ty check
     runs-on: ubuntu-latest
 
     steps:
