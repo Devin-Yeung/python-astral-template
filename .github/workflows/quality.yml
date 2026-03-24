@@ -1,0 +1,88 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ruff-format:
+    name: Ruff Format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v6
+
+      # GitHub caches installed Python runtimes on hosted runners, so
+      # we prefer setup-python while still honoring the project's pin.
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+
+      # Astral recommends pinning uv in CI for reproducible tool bootstrapping.
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.9.22"
+          enable-cache: true
+
+      - name: Sync the locked development environment
+        run: uv sync --locked --dev
+
+      - name: Check formatting
+        run: uv run ruff format --check .
+
+  ruff-lint:
+    name: Ruff Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.9.22"
+          enable-cache: true
+
+      - name: Sync the locked development environment
+        run: uv sync --locked --dev
+
+      # Use GitHub's output format so lint failures appear as annotations in PRs.
+      - name: Run lint checks
+        run: uv run ruff check --output-format=github .
+
+  ty-check:
+    name: ty Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: ".python-version"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.9.22"
+          enable-cache: true
+
+      - name: Sync the locked development environment
+        run: uv sync --locked --dev
+
+      - name: Run type checks
+        run: uv run ty check
