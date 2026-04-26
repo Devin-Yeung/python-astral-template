@@ -9,7 +9,7 @@ permissions:
 
 env:
   # Keep the uv version in one place so CI upgrades only require a single edit.
-  UV_VERSION: "0.9.22"
+  UV_VERSION: "0.11.7"
 
 jobs:
   ruff-format:
