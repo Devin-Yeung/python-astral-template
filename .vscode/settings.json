@@ -1,0 +1,15 @@
+{
+  "editor.inlayHints.enabled": "on",
+  "ty.disableLanguageServices": true,
+  // Use Pylance as the language server for Python
+  "python.languageServer": "Pylance",
+  // for cursor
+  "cursorpyright.analysis.inlayHints.callArgumentNames": true,
+  "cursorpyright.analysis.inlayHints.variableTypes": true,
+  "cursorpyright.analysis.inlayHints.functionReturnTypes": true,
+  "cursorpyright.analysis.inlayHints.callArgumentNamesMatching": true,
+  "cursorpyright.analysis.inlayHints.genericTypes": true,
+  // for vscode (pylance)
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.inlayHints.variableTypes": true
+}
